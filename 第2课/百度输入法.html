@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 70px;
+			border: 1px solid #557C9D;
+			margin-top: 5px;
+			display: none;
+		}
+		p{
+			padding: 6px 5px;
+			color: #557C9D;
+		}
+		.pin{
+			border-bottom: 1px solid #557C9D;
+		}
+		
+	</style>
+	<body>
+		<button>输入法</button>
+		<div id="box">
+			<p class="shou">手写</p>
+			<p class="pin">拼音</p>
+			<p class="guan">关闭</p>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var btn = document.getElementsByTagName("button")[0];
+	var box = document.getElementById("box");
+	var guan = box.getElementsByClassName("guan")[0];
+	btn.onclick = function(){
+		box.style.display = box.style.display == "block" ? "none" : "block";
+	}
+	guan.onclick = function(){
+		box.style.display = "none";
+	}
+</script>

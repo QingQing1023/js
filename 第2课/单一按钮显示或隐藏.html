@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#box{
+			width: 250px;
+			border: 1px solid #666666;
+		}
+		h2{
+			padding: 8px 8px;
+			background: #ced3d7;
+			font-size: 18px;
+			color:#57646E;
+			cursor: pointer;
+		}
+		#box a{
+			display:block;
+			color:#6b7980;
+			background:#e9edf2;
+			text-decoration:none;
+			padding:0 10px;
+		}
+		#box a:hover{
+			background:#fff;
+			text-decoration:underline;}
+		#box ul li{
+			height:30px;
+			line-height:30px;
+		}
+	</style>
+	<body>
+		<div id="box">
+			<h2>播放列表...</h2>
+			<ul>
+				<li><a href="javascript:0">玩家之徒-蔡依林</a></li>
+				<li><a href="javascript:0">原谅我就是这样的女生-戴佩妮</a></li>
+				<li><a href="javascript:0">猜不透-丁当</a></li>
+				<li><a href="javascript:0">自导自演-周杰伦</a></li>
+				<li><a href="javascript:0">浪漫窝-弦子</a></li>
+				<li><a href="javascript:0">流年-王菲</a></li>
+			</ul>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var dianJi = document.getElementsByTagName("h2")[0];
+	var ul = document.getElementsByTagName("ul")[0];
+	dianJi.onclick = function(){
+		ul.style.display = ul.style.display == "block"?"none":"block"
+	}
+</script>
