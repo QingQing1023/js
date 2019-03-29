@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#inp{
+			width: 200px;
+		}
+		#op{
+			width: 250px;
+			padding: 8px 8px;
+			background: #FDD001;
+			border: 1px solid #FAA25A;
+			display: none;
+		}
+	</style>
+	<body>
+		<p id="inp">
+			<input type="checkbox" name="" id="" value="" />
+			<span>两周内自动登陆</span>
+		</p>
+		<p id="op">为了您的信息安全，请不要在网吧或公用电脑上使用此功能！</p>
+	</body>
+</html>
+<script type="text/javascript">
+	var inp = document.getElementById("inp");
+	var p = document.getElementById("op");
+	inp.onmousemove = function(){
+		p.style.display = "block";
+	}
+	inp.onmouseout = function(){
+		p.style.display = "none";
+	}
+</script>

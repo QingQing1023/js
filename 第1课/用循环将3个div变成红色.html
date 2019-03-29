@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#box{
+			width: 510px;
+			margin: 0 auto;
+		}
+		#box div{
+			width: 150px;
+			height: 150px;
+			background: #000;
+			margin: 10px;
+			float: left;
+		}
+		button{
+		}
+	</style>
+	<body>
+		<center><button>点击将div变成红色</button></center>
+		<div id="box">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var btn = document.getElementsByTagName("button")[0];
+	var div = document.getElementById("box").getElementsByTagName("div");
+	btn.onclick = function(){
+		for(var i = 0;i<div.length;i++){
+			div[i].style.background = "red"
+		}
+	}
+</script>

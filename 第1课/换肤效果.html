@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#change{
+			width: 200px;
+			padding: 10px 10px;
+			background: #DEDEDE;
+			overflow: hidden;
+		}
+		#change div,#change span{
+			float: left;
+		}
+		#change div{
+			width: 10px;
+			height: 10px;
+			margin-left: 10px;
+			position: relative;
+			top: 4px;
+		}
+		#blue{
+			background: blue;
+		}
+		#yellow{
+			background: yellow;
+		}
+		#red{
+			background: red;
+		}
+		#test{
+			width: 800px;
+			height: 300px;
+			border: 3px solid blue;
+			margin-top: 20px;
+			padding: 15px 15px;
+		}
+		#bg{
+			width: 836px;
+			height: 45px;
+			background: blue;
+			margin-top: 20px;
+		}
+		.cur{
+			border: 1px solid #000000;
+		}
+	</style>
+	<body>
+		<div id="change"><span>选择页面风格</span><div id="blue" class="cur"></div><div id="red"></div><div id="yellow"></div></div>
+		<div id="test">换肤测试</div>
+		<div id="bg"></div>
+	</body>
+</html>
+<script type="text/javascript">
+	var odiv = document.getElementById("change").getElementsByTagName("div");
+	var bg = document.getElementById("bg");
+	var test = document.getElementById("test");
+	//获取非行间样式
+	function getAttr(obj,attr){  //我们把它们封装为一个函数，注意了在全局下定义的函数的都会默认设置为window对象的方法，所以以后我们调用方法的时候就可以直接用然后省略前面的对象，当然了你这样var style=window.getAttr(div,'width');调用也是木有问题的。
+		var style;
+	    if(obj.currentStyle){   //当有这个属性的时候currentStyle
+			style=obj.currentStyle[attr]; //兼容IE 我测试的是ie5+
+	    }
+	    else{
+		style=getComputedStyle(obj,false)[attr]; //主流浏览器
+	    }
+	    return style;
+	}
+	for(var i = 0;i<odiv.length;i++){
+		odiv[i].onclick = function(){
+			for(var i = 0;i<odiv.length;i++){
+				odiv[i].className = "";
+			}
+			this.className = "cur";
+			bg.style.background = getAttr(this,"background");
+//			console.log(getAttr(test,"border"));
+			test.style.border = "3px solid "+getAttr(this,"background-color");
+		}
+	}
+</script>

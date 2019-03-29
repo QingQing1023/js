@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 120px;
+			height: 120px;
+			background: #000000;
+			margin: 0 auto;
+			margin-top: 10px;
+		}
+		#big{
+			width: 200px;
+			margin: auto;
+		}
+		button{
+			margin: 3px;
+		}
+	</style>
+	<body>
+		<div id="big">
+			<button id="w">变宽</button>
+			<button id="h">变高</button>
+			<button id="c">变色</button>
+			<button id="d">隐藏</button>
+			<button id="r">重置</button>
+			<div id="box"></div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var w = document.getElementById("w");
+	var h = document.getElementById("h");
+	var c = document.getElementById("c");
+	var d = document.getElementById("d");
+	var r = document.getElementById("r");
+	var box = document.getElementById("box");
+	w.onclick = function(){
+		box.style.width = "200px";
+	}
+	h.onclick = function(){
+		box.style.height = "200px";
+	}
+	c.onclick = function(){
+		box.style.background = "red";
+	}
+	d.onclick = function(){
+		box.style.display = "none";
+	}
+	r.onclick = function(){
+		box.style.height = "100px";
+		box.style.width = "100px";
+		box.style.background = "#000";
+	}
+</script>

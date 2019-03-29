@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#box{
+			width: 150px;
+			height: 150px;
+			background: #000000;
+			padding: 20px;
+			margin: 0 auto;
+			color: #fff;
+			border: 10px solid #000;
+		}
+	</style>
+	<body>
+		<div id="box">鼠标移入改变样式，鼠标移出恢复</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var box = document.getElementById("box");
+	box.onmousemove = function(){
+		box.style.cssText = "background: #fff;border : 10px solid red;color:red";
+	}
+	box.onmouseout = function(){
+		box.style.cssText = "";
+	}
+</script>
