@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 160px;
+			height: 20px;
+			background: #000;
+			padding: 30px;
+		}
+		span{
+			color: #fff;
+		}
+		button{
+			width: 30px;
+			height: 20px;
+			background: #fff;
+		}
+	</style>
+	<body>
+		<div id="box">
+			<button id="hour"></button>
+			<span>点</span>
+			<button id="min"></button>
+			<span>分</span>
+			<button id="second"></button>
+			<span>秒</span>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	function zero(n){
+		if(n<10){
+			return "0"+n;
+		}else{
+			return n;
+		}
+	}
+	function timer(){
+		var date = new Date();
+		var hour = date.getHours();
+		var min = date.getMinutes();
+		var second = date.getSeconds();
+		var h = document.getElementById("hour");
+		var m = document.getElementById("min");
+		var s = document.getElementById("second");
+		h.innerHTML = zero(hour);
+		m.innerHTML = zero(min);
+		s.innerHTML = zero(second);
+	}
+	setInterval(timer,1000);
+</script>

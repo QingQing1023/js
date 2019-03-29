@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>0</button>
+	</body>
+</html>
+<script type="text/javascript">
+	var btn = document.getElementsByTagName("button")[0];
+	var num = 0;
+	btn.onclick = function(){
+		num++;
+		btn.innerHTML = num;
+	}
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="" value="" />
+		<button>是否为两位数</button>
+	</body>
+</html>
+<script type="text/javascript">
+	var inp = document.getElementsByTagName("input")[0];
+	var btn = document.getElementsByTagName("button")[0];
+	btn.onclick = function(){
+		if(isNaN(inp.value)){
+			alert("请输入数字！")
+		}else{
+			if(inp.value<100&&inp.value>9){
+				alert("是两位数！")
+			}else{
+				alert("不是两位数！")
+			}
+		}
+	}
+</script>
