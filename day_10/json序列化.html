@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	var box = [{"name" : "a","age" : 1,"height" : 177},{"name" : "b","age" : 2,"height" : 171}];
+	//object
+//	console.log(typeof box);
+	//对象转换成字符串    JSON.stringify()
+//	console.log(typeof JSON.stringify(box));
+
+
+	var box1 = '[{"name" : "a","age" : 1,"height" : 177},{"name" : "b","age" : 2,"height" : 171}]';	
+//	console.log(JSON.parse(box1));
+	//字符串转换成JSON  JSON.parse()
+	
+	//过滤结果(不过滤写null)   缩进4  
+	var json = JSON.stringify(box,function(key,value){
+		switch(key){
+			case 'name':
+			return 'Mr.'+value;
+			case 'age':
+			return value+"岁";
+			default:
+			return value;
+		}
+	},4);
+	console.log(json);
+	
+</script>

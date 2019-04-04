@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#tips{width: 180px;height: 35px;line-height: 35px;text-align: center;color: #fff; background: rgba(0,0,0,0.4);position: absolute;border-radius: 5px; left:0;top: 0;bottom: 0;right: 0;margin: auto;display: none;}
+		</style>
+	</head>
+	<body>
+		<div id="login">
+			<h3>网站登陆</h3>
+			<form>
+				<p>
+					<label for="">手机号</label>
+					<input id="userPhone" type="text"/>
+				</p>
+				<p>
+					<label for="">密　码</label>
+					<input id="userPass" type="text"/>
+				</p>
+				<p>
+					<input type="checkbox"/>记住用户名
+					<a href="#">忘记密码</a>
+				</p>
+				<p>
+					<input type="button" id="btn" value="请登录" />
+				</p>
+			</form>
+		</div>
+		<div id="tips">手机号或密码错误</div>
+	</body>
+</html>
+<script src="../../js/ajax.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var oPhone = document.getElementById("userPhone");
+	var oPass = document.getElementById("userPass");
+	var oBtn = document.getElementById("btn");
+	oBtn.onclick = function(){
+		ajax({
+			url:"http://localhost:8021/",
+			method:"post",
+			data:{
+				name:oPhone.value,
+				pass:oPass.value
+			},
+			success:function(response){
+				var data = JSON.parse(response);
+				if(data.code == 0){
+					location.href = "www.baidu.com";
+					localStorage.setItem("token",data,token)
+				}else{
+					alert("用户名或密码错误")
+				}
+			},
+			async:true
+		})
+	}
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">获取数据</button>
+	</body>
+</html>
+<script src="../js/ajax.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var obtn = document.getElementById("btn");
+	btn.onclick = function(){
+		ajax({
+			method:"get",
+			url:"one.json",
+			success : function(response){
+				console.log(JSON.parse(response));
+			},
+			data:{
+				
+			},
+			async:true
+		})
+	}
+</script>
