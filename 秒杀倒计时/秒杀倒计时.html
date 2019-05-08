@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.box{
+				width: 820px;
+				height: 210px;
+				border: 1px solid #ccc;
+				overflow: hidden;
+			}
+			.box .content{
+				width: 310px;
+				float: left;
+				text-align: center;
+				padding: 0 2px;
+				box-sizing: border-box;
+			}
+			.box .pic{
+				width: 508px;
+				float: left;
+				padding: 1px;
+			}
+			.box .pic img{
+				width: 100%;
+			}
+			.box .content img{
+				width: 90px;
+				margin-top:15px;
+			}
+			.box .content .p1 span{
+				font-size: 20px;
+				font-weight: bold;
+				color: #8C8C8C;
+				
+			}
+			.box .content .p1 span:last-child{
+				margin-left: 35px;
+			}
+			.box .content .p1 .red{
+				color: red;
+				font-size: 34px;
+			}
+			.box .content h3{
+				font-size: 18px;
+				margin-top: 8px;
+			}
+			.box .content .hui{
+				width: 150px;
+				padding: 3px 0;
+				border-radius: 50px;
+				margin: 8px auto;
+				background: #CCCCCC;
+				color: #FFFFFF;
+				font-size: 14px;
+				cursor: pointer;
+			}
+			.box .content .p3{
+				color: red;
+				margin-top: 10px;
+				font-size: 16px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="content">
+				<img src="img/tata.jpg"/>
+				<p class="p1"><span>秒杀价</span><span class="red">3.8元</span><span>原价：98元</span></p>
+				<h3>Tata-上品折扣1-5折 京10店配货</h3>
+				<div class="hui"><span>离开始：</span><span id="dao">52秒</span></div>
+				<p class="p3">上品折扣</p>
+			</div>
+			<div class="pic">
+				<img src="img/miao.jpg"/>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/ajax.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$.ajax({
+		type:"get",
+		url:"http://127.0.0.1:8000",
+		success:function(response){
+			function time(){
+				var data = JSON.parse(response);
+				var timestamp = Date.parse(new Date())
+	//			console.log(timestamp)
+				var t = data-timestamp;
+				var day = parseInt(t /(24*60*60*1000));
+				t = t % (24*60*60*1000);
+				var hours = parseInt(t/(60*60*1000));
+				t = t % (60*60*1000);
+				var min = parseInt(t / (60*1000));
+				t = t % (60*1000);
+				var seconds = parseInt(t / 1000);
+				$(".hui").html("倒计时："+hours+"时"+min+"分"+seconds+"秒");
+				
+				if(data-timestamp<0){ 
+					$(".hui").html("立即抢购").css("background","red")
+				}
+			}
+			time();
+			setInterval(time,1000);
+			
+			
+		},
+		async:"true"
+	})
+</script>
