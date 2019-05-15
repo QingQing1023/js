@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="scss/index.css"/>
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<nav id="nav">
+		      <ul class="navlist">
+		        <li id="n_0"><a href="index.html"><span></span></a></li>
+		        <li id="n_1"><a href="gouwuche.html" ><span></span></a></li>
+		        <li id="n_2"><a href="orderstage.html" ><span></span></a></li>
+		        <li id="n_3"><a href="productlist.html" ><span class="active"></span></a></li>
+		     </ul>
+		</nav>
+		<section class="recommendcontent">
+			<ul>
+				<li class="setyuanjiao">
+					<a class="leftimages fl" id="productimg">
+						<img src="images/product/product1.png"/>
+					</a>
+					<a class="productcontent fl">
+						<p class="ptitle pl10">广联达变更算量</p>
+						<p class="pdes pl10">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</p>
+						<p class="pprice pl10">
+							价格：
+							<span class="green">￥5000</span>
+						</p>
+					</a>
+				</li>
+				<li class="buynumsli of">
+					<div class="buylabel fl">购买数量：</div>
+					<div class="buynuminput fl of">
+						<div class="reduce fl"></div>
+						<input type="number" class="itnums fl" name="qty_item_1" value="1">
+						<div class="add fl"></div>
+					</div>
+				</li>
+			</ul>
+			<div class="decorations">
+				<div class="dtitle">详细说明</div>
+				<p>详细说明详细说明详细说明详细说明详细说明详细说明详细说明详细说明详细说明详细说明详细说明详细说明详细说明</p>
+				<img src="images/product/product1.png"/>
+			</div>
+		</section>
+		<section class="addcart">
+			<input type="button" class="addcartbtn" value="加入购物车" />
+		</section>
+	</body>
+</html>
+<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var num = 1;
+	$(".reduce").click(function(){
+		num--;
+		if(num < 1){
+			num = 1;
+		}
+		$("input[name='qty_item_1']").val(num);
+	})
+	$(".add").click(function(){
+		num++;
+		$("input[name='qty_item_1']").val(num);
+	})
+	$("input[name='qty_item_1']").blur(function(){
+		if(isNaN(parseInt($(this).val())) || $(this).val()<1){
+			$(this).val("1")
+		}
+	})
+	var productimg = $("#productimg"),
+	imgsrc = productimg.children("img").attr("src"),
+	x = productimg.offset().left+30,
+	y = productimg.offset().top-10,
+	X = $("#n_1").offset().left,
+	Y = $("#n_1").offset().top;
+	$(".addcartbtn").click(function(){
+		$("body").append("<div id='flydiv'> <img src = '"+imgsrc+"' width = '50' height = '50'></div>");
+		$("#flydiv").css({'left':x,'top':y}).animate({left:X,top:Y-80},500,function(){
+			$("#flydiv").stop(false,false);
+			$("#n_1").append("<div id='hongdian'>"+$("input[name='qty_item_1']").val()+"</div>'");
+		})
+		
+	})
+</script>
